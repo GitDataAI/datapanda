@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datapanda-deployment
+  namespace: gitdata
+  labels:
+    apptype: datapanda
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: datapanda
+  template:
+    metadata:
+      labels:
+        app: datapanda
+        apptype: datapanda
+        date: "{{ now | unixEpoch }}"
+    spec:
+      containers:
+        - name: datapanda
+          image: gitdatateam/datapanda:{{ .Values.tag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

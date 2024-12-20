@@ -1,0 +1,11 @@
+apiVersion: v2
+name: datapanda
+description: Install datapanda to provide datapanda official web page.
+version: 1.0.0
+home: https://datapanda.xyz/
+keywords:
+  - datapanda
+sources:
+  - https://github.com/datapanda-xyz/website
+maintainers:
+  - name: gitdata team
